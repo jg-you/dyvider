@@ -6,7 +6,7 @@ Its algorithms process networks whose nodes have positions in one dimension, and
 The theory and experiments exploring this code can be found in the paper [\"Fast and exact linear clustering of networks with dynamic programming\"](), by [Alice Patania](https://alpatania.github.io/), [Antoine Allard](https://antoineallard.github.io/) and [Jean-Gabriel Young](https://jg-you.github.io/). 
 
 
-![](repoimg.png)
+![](repo_img.png)
 
 
 ## Dependencies
