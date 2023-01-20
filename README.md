@@ -1,6 +1,6 @@
 # dyvider
 
-**dyvider** is a small library implementing dynamic programming algorithms for exact linear clustering in networks.
+**dyvider** is a small package implementing dynamic programming algorithms for exact linear clustering in networks.
 Its algorithms process networks whose nodes have positions in one dimension, and return their optimal partition.
 
 The theory and experiments exploring this code can be found in the paper [\"Fast and exact linear clustering of networks with dynamic programming\"](), by [Alice Patania](https://alpatania.github.io/), [Antoine Allard](https://antoineallard.github.io/) and [Jean-Gabriel Young](https://jg-you.github.io/). 

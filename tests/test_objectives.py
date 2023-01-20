@@ -9,6 +9,7 @@ Authors:
 """
 import unittest
 import networkx as nx
+import numpy as np
 from inspect import getmembers, isclass
 from dyvider import objectives
 from dyvider.layers import Layers
@@ -30,7 +31,7 @@ class TestObjectives(unittest.TestCase):
 
         # for each PairSumObjectives, test the udpate equation
         for name, obj in getmembers(objectives, isclass):
-            if name == 'PairSumObjectives':
+            if 'PairSumObjectives' in name:
                 continue
             objective_function = obj()
             if objective_function.is_pair_sum:
@@ -168,6 +169,23 @@ class TestObjectives(unittest.TestCase):
         self.assertAlmostEqual(obj.eval_layer(g, 2, 3), 0 - 2 * rho)
         self.assertAlmostEqual(obj.eval_layer(g, 1, 2), 1 - 2 * rho)
 
+
+    def test_arbitrary(self):
+        """Test numerical value of the arbitrary objective."""
+        # create graph and instantiate objective function
+        g = nx.Graph()
+        g.add_edge(0, 1)
+        g.add_edge(1, 2)
+        f = np.array([[1, 0.4, -0.5],
+                      [0.4, 1, -0.5],
+                      [-0.5, -0.5, 1]])
+        obj = objectives.ArbitraryPairSumObjectives(f)
+    
+        # test individual terms
+        self.assertAlmostEqual(obj.eval_pair(g, 0, 0), 1)
+        # test overall layer quality
+        self.assertAlmostEqual(obj.eval_layer(g, 0, 1), 2.4)
+        self.assertAlmostEqual(obj.eval_layer(g, 0, 2), 2.4)
 
 if __name__ == '__main__':
     unittest.main()

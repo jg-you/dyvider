@@ -48,6 +48,34 @@ class PairSumObjectives(object):
         return Q
 
 
+class ArbitraryPairSumObjectives(PairSumObjectives):
+    """Arbitrary PairSumObjectives quality function.
+
+    Quality of putting pairs of nodes together specified by a matrix
+
+    Parameters
+    ----------
+    f : np.array
+        Quality increment array. Assumed symmetric.
+    """
+    def __init__(self, f=None):
+        super().__init__()
+        self.f = f
+
+    def eval_pair(self, g, u, v):
+        """Calculate the contribution of a pair of nodes.
+
+        Parameters
+        ----------
+        g : networkx DiGraph or MulDiGraph
+            Input graph.
+        u, v: int
+            Node identifiers.
+        """
+        # overwrite the function as soon as epsilon is set
+        return self.f[u, v]
+
+
 class Partitioning(PairSumObjectives):
     """Partitioning objective.
     

@@ -95,6 +95,27 @@ class IntegrationTests(unittest.TestCase):
             partition.move_up(v)
             self.assertAlmostEqual(p_obj.eval(g, partition), m_obj.eval(g, partition))
 
+    def test_irrelevance_diagonal(self):
+        """Test that partition are not affected by change to the diagonal matrix."""
+        g = nx.complete_graph(5)
+        f = -np.ones((5, 5))
+        f += np.diag(np.ones(5))
+        output1, Q1 = algorithms.run(g, objectives.ArbitraryPairSumObjectives(f))
+        f += 1000 * np.diag(np.ones(5))
+        output2, Q2 = algorithms.run(g, objectives.ArbitraryPairSumObjectives(f))
+        self.assertEqual(output1, output2)
+
+
+    def test_graph_diagonal(self):
+        """Input graph should not affect optimal partition when using a matrix-specified objective."""
+        g = nx.complete_graph(5)
+        f = -np.ones((5, 5))
+        f += np.diag(np.ones(5))
+        output1, Q1 = algorithms.run(g, objectives.ArbitraryPairSumObjectives(f))
+        g = nx.empty_graph(5)
+        output2, Q2 = algorithms.run(g, objectives.ArbitraryPairSumObjectives(f))
+        self.assertEqual(output1, output2)
+
 
 if __name__ == '__main__':
     unittest.main()
