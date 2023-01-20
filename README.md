@@ -13,6 +13,20 @@ The theory and experiments exploring this code can be found in the paper [\"Fast
 
 The only necessary dependency are [`networkx`](https://networkx.org/) and `numpy`.
 
+## Installation
+
+To install the latest version of dyvider, run the following command:
+```sh
+pip install dyvider
+```
+
+To install this package locally:
+* Clone this repository
+* Navigate to the folder on your local machine
+* Run the following command:
+```sh
+pip install -e .
+```
 
 ## Quick tour
 
