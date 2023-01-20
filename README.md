@@ -11,9 +11,7 @@ The theory and experiments exploring this code can be found in the paper [\"Fast
 
 ## Dependencies
 
-The only necessary dependency is [`networkx`](https://networkx.org/). 
-
-    pip install networkx
+The only necessary dependency are [`networkx`](https://networkx.org/) and `numpy`.
 
 
 ## Quick tour
@@ -23,9 +21,10 @@ The following minimal example first assigns scores to nodes with a one-dimension
 ```python
 import networkx as nx
 import dyvider as dy
+import numpy as np
 
 # create a graph
-g = nx.stochastic_block_model([10, 10], [[0.5, 0.05], [0.05, 0.5]])
+g = nx.stochastic_block_model([10, 10], [[0.5, 0.05], [0.05, 0.5]], seed=42)
 
 # generate a 1-d embedding with the leading eigenvector of the modularity matrix
 eigenvals, eigvenvecs = np.linalg.eig(nx.linalg.adjacency_matrix(g).todense())
@@ -40,6 +39,11 @@ objective_function = dy.objectives.Modularity()
 solution, Q = dy.algorithms.run(g, objective_function)
 
 print(solution)
+```
+
+The expected output is:
+
+```python
 >>> [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]] 
 ```
 
