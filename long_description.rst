@@ -8,7 +8,7 @@ their optimal partition.
 
 The theory and experiments exploring this code can be found in the paper
 `"Fast and exact linear clustering of networks with dynamic
-programming" <>`__, by `Alice Patania <https://alpatania.github.io/>`__,
+programming" <https://arxiv.org>`__, by `Alice Patania <https://alpatania.github.io/>`__,
 `Antoine Allard <https://antoineallard.github.io/>`__ and `Jean-Gabriel
 Young <https://jg-you.github.io/>`__.
 
@@ -64,7 +64,7 @@ Paper
 If you use this code, please consider citing:
 
 “`Fast and exact linear clustering of networks with dynamic
-programming <>`__” `Alice Patania <https://alpatania.github.io/>`__,
+programming <https://arxiv.org>`__” `Alice Patania <https://alpatania.github.io/>`__,
 `Antoine Allard <https://antoineallard.github.io/>`__ and `Jean-Gabriel
 Young <https://jg-you.github.io/>`__. arXiv (2023)
 

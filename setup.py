@@ -5,9 +5,9 @@ from setuptools import setup
 # Version information
 name = 'dyvider'
 major = "0"
-minor = "1"
+minor = "2"
 
-description = "Fast and exact partitioning algorithms for graphs embedded in one dimension."
+description="Fast and exact partitioning algorithms for graphs embedded in one dimension."
 
 license = 'MIT'
 authors = "Jean-Gabriel Young, Alice Patania"

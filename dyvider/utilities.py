@@ -26,6 +26,7 @@ def preprocess(g):
                            reverse=True)
 
     # separate nodes by equivalence classes with respect to scores
+    has_equal_scores = False
     scores_to_supernode = dict()
     node_mapping = dict()
     curr_supernode = 0
@@ -36,6 +37,7 @@ def preprocess(g):
             curr_supernode +=1
         else:
             node_mapping[scores_to_supernode[score]] += [node_id]
+            has_equal_scores = True
 
     # create inverse mappings 
     supernode_to_scores = dict(map(reversed, scores_to_supernode.items()))
@@ -57,4 +59,12 @@ def preprocess(g):
     for e in g.edges():
         g_prime.add_edge(inv_node_mapping[e[0]], inv_node_mapping[e[1]])
 
+    # raise Warnings if needed:
+    if has_equal_scores:
+        raise RuntimeWarning("Nodes with identical scores have been collapsed "
+                             "into  super-nodes. The default objective "
+                             "functions don't account for super-nodes; use "
+                             "custom objectives.")
+
     return g_prime
+
