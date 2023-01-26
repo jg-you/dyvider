@@ -3,7 +3,7 @@
 **dyvider** is a small package implementing dynamic programming algorithms for exact linear clustering in networks.
 Its algorithms process networks whose nodes have positions in one dimension, and return their optimal partition.
 
-The theory and experiments exploring this code can be found in the paper [\"Fast and exact linear clustering of networks with dynamic programming\"](), by [Alice Patania](https://alpatania.github.io/), [Antoine Allard](https://antoineallard.github.io/) and [Jean-Gabriel Young](https://jg-you.github.io/). 
+The theory and experiments exploring this code can be found in the paper [\"Exact and rapid linear clustering of networks with dynamic programming\"](https://arxiv.org/abs/2301.10403), by [Alice Patania](https://alpatania.github.io/), [Antoine Allard](https://antoineallard.github.io/) and [Jean-Gabriel Young](https://jg-you.github.io/).
 
 
 ![](repo_img.png)
@@ -68,9 +68,9 @@ Our [tutorial](tutorial.ipynb) goes into more detail and demonstrates all the AP
 
 If you use this code, please consider citing:
 
-"[*Fast and exact linear clustering of networks with dynamic programming*]()"<br/>
+"[*Exact and rapid linear clustering of networks with dynamic programming*](https://arxiv.org/abs/2301.10403)"<br/>
 [Alice Patania](https://alpatania.github.io/), [Antoine Allard](https://antoineallard.github.io/) and [Jean-Gabriel Young](https://jg-you.github.io/). <br/>
-arXiv (2023) <br/>
+arXiv:2301.10403 <br/>
 
 
 ## Author information

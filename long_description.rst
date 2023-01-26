@@ -7,17 +7,16 @@ process networks whose nodes have positions in one dimension, and return
 their optimal partition.
 
 The theory and experiments exploring this code can be found in the paper
-`"Fast and exact linear clustering of networks with dynamic
-programming" <https://arxiv.org>`__, by `Alice Patania <https://alpatania.github.io/>`__,
-`Antoine Allard <https://antoineallard.github.io/>`__ and `Jean-Gabriel
-Young <https://jg-you.github.io/>`__.
+`"Exact and rapid linear clustering of networks with dynamic programming" <https://arxiv.org/abs/2301.10403>`__, 
+by `Alice Patania <https://alpatania.github.io/>`__, `Antoine Allard <https://antoineallard.github.io/>`__ 
+and `Jean-Gabriel Young <https://jg-you.github.io/>`__.
 
 
 Dependencies
 ------------
 
 The only necessary dependency are
-```networkx`` <https://networkx.org/>`__ and ``numpy``.
+`networkx <https://networkx.org/>`__ and ``numpy``.
 
 Quick tour
 ----------
@@ -63,10 +62,10 @@ Paper
 
 If you use this code, please consider citing:
 
-“`Fast and exact linear clustering of networks with dynamic
-programming <https://arxiv.org>`__” `Alice Patania <https://alpatania.github.io/>`__,
-`Antoine Allard <https://antoineallard.github.io/>`__ and `Jean-Gabriel
-Young <https://jg-you.github.io/>`__. arXiv (2023)
+“`Exact and rapid linear clustering of networks with dynamic programming <https://arxiv.org/abs/2301.10403>`__” 
+`Alice Patania <https://alpatania.github.io/>`__,
+`Antoine Allard <https://antoineallard.github.io/>`__ and 
+`Jean-Gabriel Young <https://jg-you.github.io/>`__. arXiv:2301.10403.
 
 Author information
 ------------------

@@ -5,9 +5,9 @@ from setuptools import setup
 # Version information
 name = 'dyvider'
 major = "0"
-minor = "2"
+minor = "3"
 
-description="Fast and exact partitioning algorithms for graphs embedded in one dimension."
+description="Rapid and exact partitioning algorithms for graphs embedded in one dimension."
 
 license = 'MIT'
 authors = "Jean-Gabriel Young, Alice Patania"
@@ -17,7 +17,7 @@ download_url = 'https://pypi.python.org/pypi/dyvider/'
 platforms = ['Linux', 'Unix']
 keywords = ['graphs', 'community detection', 'networks', 'inference']
 classifiers = [
-    'Development Status :: 2 - Pre-Alpha  ',
+    'Development Status :: 4 - Beta  ',
     'Intended Audience :: Developers',
     'Intended Audience :: Science/Research',
     'License :: OSI Approved :: MIT License  ',
