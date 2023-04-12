@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling", "networkx", "numpy"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dyvider"
+version = "0.3"
+authors = [
+  { name="Jean-Gabriel Young", email="jean-gabriel.young@uvm.edu" },
+  { name="Alice Patania" }
+]
+description = "Rapid and exact partitioning algorithms for graphs embedded in one dimension."
+long_description = "long_description.rst"
+readme = "README.md"
+keywords = ['graphs', 'community detection', 'networks', 'inference']
+platforms = ['Linux', 'Unix']
+license = 'MIT'
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Scientific/Engineering :: Information Analysis',
+    'Topic :: Scientific/Engineering :: Mathematics']
+
+[project.urls]
+"Source" = 'https://github.com/jg-you/dyvider'
+"Download" = 'https://pypi.python.org/pypi/dyvider/'
