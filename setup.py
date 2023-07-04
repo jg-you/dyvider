@@ -35,7 +35,7 @@ ___version___ = major + "." + minor
 setup(name=name,
       version=___version___,
       description=description,
-      long_description=open('long_description.rst').read(),
+      long_description=open('long_description.rst', encoding="utf8").read(),
       url=url,
       author=authors,
       author_email=author_email,
