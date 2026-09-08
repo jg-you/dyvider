@@ -1,5 +1,0 @@
-include MANIFEST.in
-include setup.py
-include README.md
-include long_description.rst
-include LICENSE
