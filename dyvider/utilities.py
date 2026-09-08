@@ -6,6 +6,8 @@ Authors:
 * Jean-Gabriel Young <jean-gabriel.young@uvm.edu>
 * Alice Patania <alice.patania@uvm.edu>
 """
+import warnings
+
 import networkx as nx
 
 def preprocess(g):
@@ -20,6 +22,12 @@ def preprocess(g):
     g : networkx DiGraph, Graph, MulDiGraph or MultiGraph
         Annotated graph structure. Nodes should have a "score" attribute
         corresponding to their embedding position.
+
+    Warns
+    -----
+    RuntimeWarning
+        If nodes with identical scores are collapsed into super-nodes. The
+        returned graph requires custom objectives that account for super-nodes.
     """
     sorted_scores = sorted(nx.get_node_attributes(g, 'score').items(),
                            key=lambda x: x[1],
@@ -59,12 +67,15 @@ def preprocess(g):
     for e in g.edges():
         g_prime.add_edge(inv_node_mapping[e[0]], inv_node_mapping[e[1]])
 
-    # raise Warnings if needed:
+    # Warn when objectives need to account for collapsed nodes.
     if has_equal_scores:
-        raise RuntimeWarning("Nodes with identical scores have been collapsed "
-                             "into  super-nodes. The default objective "
-                             "functions don't account for super-nodes; use "
-                             "custom objectives.")
+        warnings.warn(
+            "Nodes with identical scores have been collapsed "
+            "into super-nodes. The default objective "
+            "functions don't account for super-nodes; use "
+            "custom objectives.",
+            RuntimeWarning,
+            stacklevel=2,
+        )
 
     return g_prime
-

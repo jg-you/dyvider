@@ -53,7 +53,7 @@ class TestUtilities(unittest.TestCase):
     def test_preprocess_equalities(self):
         """Test that the pre-processing function correctly handles equalities."""
 
-        # create graog
+        # create graph
         edges = [(0, 1),
                  (0, 2),
                  (1, 2),
@@ -68,14 +68,20 @@ class TestUtilities(unittest.TestCase):
         g.add_edges_from(edges)
         nx.set_node_attributes(g, scores, 'score')
 
-        # preprocess
-        g = utilities.preprocess(g)
+        # Preprocessing warns but returns the graph for custom objectives.
+        with self.assertWarnsRegex(RuntimeWarning, "use custom objectives"):
+            g = utilities.preprocess(g)
 
         # test equalities
         self.assertListEqual(g.nodes[1]['node_mapping'], [1, 2])
         # test structure
         self.assertListEqual([g.degree(0), g.degree(1), g.degree(2)],
                              [3, 6, 3])
+        self.assertEqual(g.number_of_nodes(), 3)
+        self.assertEqual(g.number_of_edges(), 6)
+        self.assertEqual(g.number_of_edges(0, 1), 2)
+        self.assertEqual(g.number_of_edges(1, 1), 1)
+        self.assertEqual(g.number_of_edges(1, 2), 2)
 
 if __name__ == '__main__':
     unittest.main()
