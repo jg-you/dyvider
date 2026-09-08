@@ -5,7 +5,7 @@ Authors:
 Alice Patania <alice.patania@uvm.edu>
 Jean-Gabriel Young <jean-gabriel.young@uvm.edu>
 """
-import pkg_resources
+from importlib.metadata import version
 
 from . import (
     utilities,
@@ -15,4 +15,4 @@ from . import (
 )
 
 
-__version__ = pkg_resources.require("dyvider")[0].version
+__version__ = version("dyvider")

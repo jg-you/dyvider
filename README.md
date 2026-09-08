@@ -11,22 +11,45 @@ The theory and experiments exploring this code can be found in the paper [\"Exac
 
 ## Dependencies
 
-The only necessary dependency are [`networkx`](https://networkx.org/) and `numpy`.
+Python 3.10 or newer is required. The only runtime dependencies are
+[`networkx`](https://networkx.org/) and `numpy`.
 
 ## Installation
 
-To install the latest version of dyvider, run the following command:
+To add the latest release of dyvider to a uv project:
 ```sh
-pip install dyvider
+uv add dyvider
 ```
 
-To install this package locally:
-* Clone this repository
-* Navigate to the folder on your local machine
-* Run the following command:
+You can also install it locally with `pip install dyvider`.
+
+## Development
+
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then clone this repository and create the development environment:
+
 ```sh
-pip install -e .
+git clone https://github.com/jg-you/dyvider.git
+cd dyvider
+uv sync --locked
+uv run pytest
 ```
+
+`uv sync` installs dyvider in editable mode and includes the development dependencies. 
+
+To work through the notebook, install the optional tutorial dependencies:
+
+```sh
+uv sync --locked --extra tutorial
+uv run --extra tutorial jupyter lab tutorial.ipynb
+```
+
+To build the wheel and source distribution:
+
+```sh
+uv build
+```
+
+For development without uv, use `pip install -e . pytest`.
 
 ## Quick tour
 
@@ -40,8 +63,8 @@ import numpy as np
 # create a graph
 g = nx.stochastic_block_model([10, 10], [[0.5, 0.05], [0.05, 0.5]], seed=42)
 
-# generate a 1-d embedding with the leading eigenvector of the modularity matrix
-eigenvals, eigvenvecs = np.linalg.eig(nx.linalg.adjacency_matrix(g).todense())
+# generate a 1-d embedding from an eigenvector of the adjacency matrix
+eigenvals, eigvenvecs = np.linalg.eig(nx.to_numpy_array(g))
 score = {v: float(eigvenvecs[v, 0]) for v in g.nodes()}
 
 # set the node positions
